@@ -1,6 +1,6 @@
 // ******************************imports************************************
 import React, { useEffect, useMemo, useState } from "react";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   useTable,
   usePagination,
@@ -46,7 +46,7 @@ export const DrawTable = () => {
   const [value, setValue] = useState(0);
   const [settlementGroupFilter, setSettlementGroupFilter] =
     useState("Open Trades");
-  
+
   // **************************************************
   const [tradeDate, setTradeDate] = useState([null, null]);
   const [valueDate, setValueDate] = useState([null, null]);
@@ -145,12 +145,10 @@ export const DrawTable = () => {
 
   // ************************* date filter by type and by values *********************************
 
-
-
   useEffect(() => {
     if (tradeDate[0] && tradeDate[1] && !(valueDate[0] && valueDate[1])) {
       setTableData(
-        stateDataArray
+        data
           .filter((row) => row.Settlement_Group === `${settlementGroupFilter}`)
           .filter(
             (row) =>
@@ -161,7 +159,7 @@ export const DrawTable = () => {
     }
     if (!(tradeDate[0] && tradeDate[1]) && valueDate[0] && valueDate[1]) {
       setTableData(
-        stateDataArray
+        data
           .filter((row) => row.Settlement_Group === `${settlementGroupFilter}`)
           .filter(
             (row) =>
@@ -172,7 +170,7 @@ export const DrawTable = () => {
     }
     if (tradeDate[0] && tradeDate[1] && valueDate[0] && valueDate[1]) {
       setTableData(
-        stateDataArray
+        data
           .filter((row) => row.Settlement_Group === `${settlementGroupFilter}`)
           .filter(
             (row) =>
@@ -188,11 +186,9 @@ export const DrawTable = () => {
     }
   }, [tradeDate, valueDate]);
 
-  
   return (
     <>
       {/* **************** choose between open and old trades ******************** */}
-      
       <Box sx={{ width: "100%" }}>
         <Box
           sx={{
@@ -459,7 +455,7 @@ function Table2({ columns, data, updateMyData, skipReset }) {
       data,
       defaultColumn,
       filterTypes,
-      
+
       // updateMyData isn't part of the API, but
       // anything we put into these options will
       // automatically be available on the instance.
@@ -499,18 +495,15 @@ function Table2({ columns, data, updateMyData, skipReset }) {
     arrayBS.push(row.B_S);
   });
   let optionsBS = [...new Set(arrayBS)];
- console.log(filteredRows)
 
   // Render the UI for your table
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "row" }} id={"box-2"}>
         <Select
-          id={"input-field-custom"}
           labelId="demo-simple-select-label"
           defaultValue=""
-          select-box
-          label="Client"
+          // label="Client"
           onChange={(e) => setFilter("Client", e.target.value)}
           displayEmpty={true}
           renderValue={(value) =>
@@ -531,10 +524,9 @@ function Table2({ columns, data, updateMyData, skipReset }) {
           })}
         </Select>
         <Select
-          id={"input-field-custom"}
           labelId="demo-simple-select-label"
           defaultValue=""
-          label="buy/sell"
+          // label="buy/sell"
           onChange={(e) => setFilter("B_S", e.target.value)}
           displayEmpty={true}
           renderValue={(value) =>
@@ -698,7 +690,6 @@ function Table2({ columns, data, updateMyData, skipReset }) {
             ))}
           </select>
           <span> | Row result number {filteredRows.length}</span>
-
         </div>
       </Paper>
     </>
