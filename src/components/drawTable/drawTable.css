@@ -1,0 +1,40 @@
+#tableH {
+  background: rgb(189, 189, 192);
+  font-weight: bolder;
+  border: rgb(230, 227, 227) 1px solid;
+  text-align: center;
+}
+
+.pagination {
+  margin-bottom: 5vh;
+}
+#range-picker {
+  margin-bottom: 4vh;
+}
+.MuiOutlinedInput-root .MuiSelect-select {
+  color: rgb(126, 123, 123);
+}
+
+#range-picker,
+#box-2 {
+  width: 50%;
+  float: left;
+}
+
+
+.css-132a6sb-MuiTableCell-root {
+  line-height: 1 !important;
+  padding: 0 !important;
+  text-align: center !important;;
+}
+/* #input-field-custom{
+  border: 3px red solid;
+  margin-left: 30px;
+} */
+
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+  margin-right: 20px;
+}
+
+

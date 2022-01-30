@@ -1,0 +1,24 @@
+
+
+
+.file-upload {
+  /* box-shadow: 2px 2px 2px 2px #ccc; */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+
+.upbutton {
+  margin-top: 4vh;
+  width: 5rem;
+  padding: 0.5rem;
+  background:transparent linear-gradient(270deg, #3e2f72 0%, #271e49 100%) 0%;
+  
+  color: aliceblue;
+  font-size: 1rem;
+  cursor: pointer;
+}

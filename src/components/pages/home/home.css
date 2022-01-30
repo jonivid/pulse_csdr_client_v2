@@ -1,0 +1,9 @@
+.headerPulse {
+    height: 8vh;
+    background: transparent linear-gradient(270deg, #bef1ef 0%, #024268 100%) 0%;
+    text-align: center;
+    padding-top: 1vh;
+    color: white;
+    margin-top:0 ;
+
+}
