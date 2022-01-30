@@ -45,9 +45,9 @@ export const UploadFile = () => {
       console.log(parsedData, "no file inside");
     } else {
       setMessage("File uploaded successfully");
-      await axios.post("http://localhost:3001/pulse", parsedData);
+      await axios.post(`${process.env.REACT_APP_SERVER_URL}/pulse`, parsedData);
       console.log("updating table");
-      const result = await axios.get(`http://localhost:3001/pulse`);
+      const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/pulse`);
       setProgress(0);
       setActive(true);
       setUploadBtn(true);

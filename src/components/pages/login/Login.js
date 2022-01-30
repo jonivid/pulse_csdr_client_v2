@@ -17,7 +17,7 @@ export const Login = () => {
     );
     if (result.status === 200) {
       const resToken = await axios.post(
-        `http://localhost:3001/users/login`,
+        `${process.env.REACT_APP_SERVER_URL}/users/login`,
         data,
       );
       const token = "Bearer " + resToken.data.token;

@@ -15,7 +15,7 @@ export const Home = () => {
   useEffect(() => {
     (async () => {
       try {
-        const result = await axios.get(`http://localhost:3001/pulse`, {
+        const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/pulse`, {
           headers: {
             Authorization: `${sessionStorage.getItem("token") ?? ""}`,
           },
