@@ -11,20 +11,15 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    const result = await axios.post(
-      `https://api.makor-x.com/authentication/ms_login`,
+    const resToken = await axios.post(
+      `${process.env.REACT_APP_SERVER_URL}/users/login`,
       data,
     );
-    if (result.status === 200) {
-      const resToken = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/users/login`,
-        data,
-      );
-      const token = "Bearer " + resToken.data.token;
-      sessionStorage.setItem("token", token);
-      axios.defaults.headers.common["Authorization"] = token;
-      navigate("/home");
-    }
+    console.log(resToken);
+    const token = "Bearer " + resToken.data.token;
+    sessionStorage.setItem("token", token);
+    axios.defaults.headers.common["Authorization"] = token;
+    navigate("/home");
   };
 
   return (
